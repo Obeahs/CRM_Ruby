@@ -1,0 +1,23 @@
+<%# app/views/customers/_customer.html.erb %>
+<div class="card">
+  <div class="card-image">
+    <% if customer.image.attached? %>
+      <figure class="image is-4by3">
+        <%= image_tag url_for(customer.image), alt: customer.name %>
+      </figure>
+    <% end %>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4"><%= customer.name %></p>
+        <p class="subtitle is-6"><%= customer.email %></p>
+      </div>
+    </div>
+    <div class="content">
+      <p><strong>Phone:</strong> <%= customer.phonenumber %></p>
+      <p><strong>Notes:</strong> <%= customer.notes %></p>
+      <time datetime="<%= customer.created_at %>"><%= customer.created_at.strftime("%B %d, %Y") %></time>
+    </div>
+  </div>
+</div>
